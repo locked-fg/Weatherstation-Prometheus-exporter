@@ -19,6 +19,7 @@ BAROMETER_UID = "FbW"
 HUMIDITY_UID = "hRd"
 TEMPERATURE_UID = "dXC"
 
+
 @app.route("/")
 def data():
     logger.setLevel(logging.INFO)
