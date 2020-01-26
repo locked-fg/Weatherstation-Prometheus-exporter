@@ -30,7 +30,7 @@ def data():
         ipcon.connect(HOST, PORT)
 
         out.append("weather_ambient_light_lux {}".format(get_light(ipcon)))
-        out.append("weather_air_pressur_mbar {}".format(get_barometer(ipcon)))
+        out.append("weather_air_pressure_mbar {}".format(get_barometer(ipcon)))
         out.append("weather_humidity_percent {}".format(get_humidity(ipcon)))
         out.append("weather_temperature_degrees_celsius {}".format(get_temperature(ipcon)))
 
