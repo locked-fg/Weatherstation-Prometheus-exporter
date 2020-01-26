@@ -1,5 +1,6 @@
-from flask import Flask, request
+from flask import Flask
 import logging
+import os
 from tinkerforge.bricklet_ambient_light import AmbientLight
 from tinkerforge.bricklet_barometer import Barometer
 from tinkerforge.bricklet_humidity import Humidity
@@ -10,8 +11,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger('Weatherstation')
 
-#HOST = "localhost"
-HOST = "raspberrypi-outside"
+HOST = os.environ['BRICKD_HOST']
 PORT = 4223
 
 AMBIENT_UID = "jzj"

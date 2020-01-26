@@ -1,11 +1,10 @@
-FROM balenalib/raspberry-pi-debian:latest
+FROM balenalib/raspberry-pi-alpine:latest
 MAINTAINER Franz Graf "code@locked.de"
-RUN apt-get update && apt-get install apt-utils
-RUN apt-get install python3 python3-pip python3-setuptools libusb-1.0-0 libudev0 pm-utils
-RUN apt-get clean && apt-get autoremove
-RUN curl -L -o brickd_linux_latest_armhf.deb http://download.tinkerforge.com/tools/brickd/linux/brickd_linux_latest_armhf.deb && \
-    dpkg -i brickd_linux_latest_armhf.deb && \
-    rm brickd_linux_latest_armhf.deb
+RUN apk update && \
+    apk add python3 && \
+    pip3 install --upgrade pip && \
+    pip3 install wheel && \
+    rm rm -rf /root/.cache
 WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 RUN pip3 install -r requirements.txt
