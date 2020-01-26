@@ -17,6 +17,3 @@ docker run -d -p 5000:5000 \
  --restart=always \
  --name weatherstation_prometheus_exporter locked_fg/weatherstation_prometheus_exporter:latest
 ```
-
-## TODO
-change to base image `raspberry-pi-alpine`
